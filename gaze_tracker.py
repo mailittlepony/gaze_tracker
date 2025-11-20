@@ -9,10 +9,10 @@ import cv2
 import mediapipe as mp
 from collections import deque
 
-from gaze_tracker.src.utils import align_face, crop_left_eye, preprocess_eye, eye_aspect_ratio
-from gaze_tracker.src.models import predict_gaze, get_face_embedding, load_models
-from gaze_tracker.src.tracking import update_embeddings
-from gaze_tracker.src.config import *
+from .src.utils import align_face, crop_left_eye, preprocess_eye, eye_aspect_ratio
+from .src.models import predict_gaze, get_face_embedding, load_models
+from .src.tracking import update_embeddings
+from .src.config import *
 
 
 class GazeTracker:
@@ -131,4 +131,7 @@ class GazeTracker:
         if self.tracked_face_landmarks is None:
             return None
         return [self.tracked_face_landmarks[i] for i in indices if 0 <= i < len(self.tracked_face_landmarks)]
+
+    def __del__(self):
+        self.face_mesh.close()
 

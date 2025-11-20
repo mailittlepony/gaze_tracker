@@ -35,12 +35,16 @@ def draw_landmarks(frame, landmarks, color=(0, 255, 0), radius=2, thickness=-1):
     return frame
 
 cap = cv2.VideoCapture(0)
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH) 
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT) 
 
 try:
     while True:
         ret, frame = cap.read()
         if not ret:
             break
+
+        frame = cv2.resize(frame, (640, int(height / width * 640)))
 
         state = tracker.get_eye_state(frame)
         print("Eye state:", state)
@@ -58,5 +62,6 @@ try:
 finally:
     cap.release()
     cv2.destroyAllWindows()
+    
 
 
