@@ -7,7 +7,7 @@ This repository provides a gaze direction tracker that can detect five gaze dire
 
 
 ## Use gaze-tracker
-> Make sure you have the gaze model and a tracking model that I found from [sirius_ai's MobileFaceNet_TF](https://github.com/sirius-ai/MobileFaceNet_TF) in a same folder
+> Make sure you have the face recognition model that I found from [sirius_ai's MobileFaceNet_TF](https://github.com/sirius-ai/MobileFaceNet_TF) in a same folder
 
 - Then clone the repository:
 ```bash
